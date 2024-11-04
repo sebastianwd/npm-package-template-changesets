@@ -1,0 +1,36 @@
+{
+  "name": "npm-package-template-changesets",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/sebastianwd/npm-package-template-changesets"
+  },
+  "description": "",
+  "scripts": {
+    "build": "tsup src",
+    "release": "changeset",
+    "ci:publish": "pnpm build && changeset publish --access public"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "keywords": [],
+  "author": "Sebastian Luque",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
